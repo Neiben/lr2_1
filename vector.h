@@ -2,8 +2,8 @@
 #include <iostream>
 class vector
 {
-private :
-		int* vctr;
+
+		int* values;
 		 int size;
 	
 public:
@@ -12,13 +12,13 @@ public:
 	vector(int value[], const int size); // конструктор с параметрами // 
 	~vector(); // деструктор //
 	vector& operator = (const vector& vec); // оператор присваивания копированием //
-	int operator [] (const int& pos); // получение элемента по индексу //
+	int operator [] (int& pos); // получение элемента по индексу //
 	int size_of(const vector& vec); // размер вектора //
 	int find(int& value); // поиск элемента //
-	void push_end(const vector& vec, int val); // добавление в конец //
-	void replace(int& oldvalue, int& newValue);
+	void push_end(const int& val); // добавление в конец //
+	void replace(const int& oldvalue,const int& newValue); // замена 
+	void print( vector& vec);
+	friend std::ostream& operator<<(std::ostream& out, vector& vec);
+
 
 };
-
-std::ostream& operator<<(std::ostream& out, vector& vec);
-std::istream& operator>>(std::istream& in, vector& vec);
