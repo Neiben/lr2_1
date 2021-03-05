@@ -1,13 +1,13 @@
 #include "vector.h"
 # include <iostream>
  
-vector::vector(){  // default constructor
+vector::vector(){  
 	 values = new int[10];
 	 size = 10;
 
 }
 
-vector::vector(const vector& vec) { // copy constructor
+vector::vector(const vector& vec) {
 	size =  vec.size;
 	values = new int[size];
 	if (vec.values != nullptr) {
@@ -17,7 +17,7 @@ vector::vector(const vector& vec) { // copy constructor
 	}
 }
 
-vector::vector(int value[], const int size2) { // constructor with parametrs
+vector::vector(int value[], const int size2) { 
 	size = size2;
 	values = new int[size2];
 	for (int i = 0; i < size2; i ++) {
@@ -25,7 +25,7 @@ vector::vector(int value[], const int size2) { // constructor with parametrs
 	}
 }
 
-vector::~vector() {    // destructor 
+vector::~vector() {    
 	delete [] values;
 	size = 0;
 }
@@ -86,31 +86,23 @@ void vector::push_end(const int& val) {
 	 for (int i = 0; i < size; i++) {
 		 values[i] = vec.values[i];
 	 }
-	 return *this; // здесь € прописал return this, потому что мне так сказал кто-то из одногруппников, но € не понимаю как точно работает "this". объ€сните пж в письме с исправлени€ми.
+	 return *this; 
  }
 
  void vector::replace(const int& oldvalue, const int& newValue) {
 	
-	 for (int i = 0; i < size; i++)
+	 for (int i = 0; i < size; i++) {
 		 if (values[i] == oldvalue) {
 			 values[i] = newValue;
-			 break;
-
-			 if (values[size]  != oldvalue) {
-				 std::cout << "wrong value" << std::endl;
-			 }
 		 }
+	 }
  }
 
  void vector::print( vector& vec) {
-	 if (vec.size == 0) {
-		 std::cout << "vector is empty" << std :: endl;
-		 
-	 }
-	 else {
+	 
 		 for (int i = 0; i < vec.size; i++) {
 			 std :: cout << vec.values[i] << " ";
 		 }
-	 }
+	 
 	 std::cout << std::endl;
  }
